@@ -13,6 +13,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from scipy.stats import poisson, kstest
+from scipy.stats import expon
 
 #%%
 
@@ -88,7 +89,10 @@ def place_distractors(items, proba=0.2):
     return is_distractor.astype(int)
 
 def distribute_sequences(all_sequences, seq_per_subj):
-    """return the sequences such that they are distributed across participants"""
+    """return the sequences such that they are distributed across participants
+    
+    make sure that they are 
+    """
     assert len(all_sequences)%seq_per_subj==0
     n_subj = len(all_sequences) // seq_per_subj
 
@@ -179,9 +183,9 @@ def choose_cue(sequence):
 #%%
 np.random.seed(0)
 random.seed(0)
-n_blocks = 8
+n_blocks = 16
 seq_per_subj = 8
-n_subj = 30
+n_subj = 40
 speeds = [32, 64, 128, 512]
 
 max_reward = 500  # maximum reward to obtain in cents
@@ -197,7 +201,7 @@ all_sequences = [''.join(x) for x in list(permutations(items))]
 np.random.shuffle(all_sequences)  # shake once for randomness
 sequences_subjects = distribute_sequences(all_sequences, seq_per_subj=8)
 
-
+#%%
 # check all debruijn sequences are unique. Very unlikely to have duplicates
 assert len(set([''.join(seq) for seq in localizer_seq]))==n_subj*n_blocks
 
@@ -206,21 +210,21 @@ for subj in range(n_subj):
     sequences_file = f'./sequences/sequences_{subj}.csv'
     df_localizer = pd.DataFrame()
     df_sequences = pd.DataFrame()
-    exp_time = 0
+
     for block in range(n_blocks):
 
         # localizer trials
         localizer = localizer_seq[(subj*n_blocks)+block]
         localizer_img = [stimuli[x] for x in localizer]
-        isi_loc = np.random.normal(2.5, scale=0.5, size=len(localizer_img))
-        isi_loc[isi_loc<1] = 1 # truncate
-        isi_loc[isi_loc>5] = 5 # truncate
 
+        isi_loc = expon.rvs(scale=1.5, size=len(localizer_img))+1
+        # truncate over 10 to not have extremely long timings
+        # isi_loc = np.clip(isi_loc, None, 10)
+    
         df_localizer_block = pd.DataFrame()
         df_localizer_block['block'] = [block] * len(localizer_img)
         df_localizer_block['trial'] = np.arange(len(localizer_img))
         df_localizer_block['img']= localizer_img
-
         df_localizer_block['isi']= isi_loc
         df_localizer_block['distractor'] = place_distractors(localizer_img)
 
@@ -251,11 +255,6 @@ for subj in range(n_subj):
 
         df_sequences = pd.concat([df_sequences, df_sequences_block], ignore_index=True)
 
-        # estimate experiment runtime
-        exp_time += isi_loc.sum()
-        exp_time += (0.3+0.5)*len(isi_loc)
-        exp_time += (0.1+5+1+1)*len(isi_loc)
-
         # manual overwrite for dummy trials
         if subj==0 and block==0:
             df_localizer.loc[:, 'distractor'] = 0
@@ -266,12 +265,18 @@ for subj in range(n_subj):
             
             df_sequences.loc[0, 'isi'] = 128
             df_sequences.loc[1, 'isi'] = 256
-            df_sequences.loc[2, 'isi'] = 64
+            df_sequences.loc[2, 'isi'] = 64    
+   
+    # estimate experiment runtime
+    # sum all ISI of the localizer plus fixation cross and image
+    exp_time_loc = df_localizer.isi.sum() +(0.3+0.5)*len(df_localizer)  
+    # each sequence showing is 10 sec including buffer
+    exp_time_seq = 10*len(df_sequences) + (1+1.5+0.25+2.5) * len(df_sequences)
+    exp_time = exp_time_seq + exp_time_loc
             
     df_localizer.to_csv(localizer_file)
     df_sequences.to_csv(sequences_file)
-    
-    print(f'{subj} {exp_time:.1f} seconds')
+    print(f'{subj} runtime: {exp_time/60:.1f} min | localizer ~{exp_time_loc/60:.1f} min + sequences {exp_time_seq/60:.1f} min')
     
     # sanity checks
     assert max([len(x) for x in groupby(df_localizer.img)])<=2
@@ -286,3 +291,4 @@ print(f'{n_distractors} distractor trials')
 print(f'reward_per_trial = {n_reward} ct')
 with open('reward_in_ct.txt', 'w') as f:
     f.write(str(n_reward))
+    

@@ -10,7 +10,7 @@
     <Param val="" valType="str" updates="None" name="End Message"/>
     <Param val="{'participant': '0'}" valType="code" updates="None" name="Experiment info"/>
     <Param val="True" valType="bool" updates="None" name="Force stereo"/>
-    <Param val="False" valType="bool" updates="None" name="Full-screen window"/>
+    <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
     <Param val="" valType="str" updates="None" name="HTML path"/>
     <Param val="" valType="str" updates="None" name="Incomplete URL"/>
     <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
@@ -25,8 +25,8 @@
     <Param val="True" valType="bool" updates="None" name="Show info dlg"/>
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
     <Param val="use prefs" valType="str" updates="None" name="Units"/>
-    <Param val="2024.2.0" valType="str" updates="None" name="Use version"/>
-    <Param val="[1400,1050]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="" valType="str" updates="None" name="Use version"/>
+    <Param val="[1920, 1080]" valType="list" updates="None" name="Window size (pixels)"/>
     <Param val="none" valType="str" updates="None" name="backgroundFit"/>
     <Param val="" valType="str" updates="None" name="backgroundImg"/>
     <Param val="avg" valType="str" updates="None" name="blendMode"/>
@@ -60,7 +60,6 @@
     <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
     <Param val="0.5" valType="num" updates="None" name="mgSaccade"/>
     <Param val="neon.local" valType="str" updates="None" name="plCompanionAddress"/>
-    <Param val="scene_camera.json" valType="file" updates="None" name="plCompanionCameraCalibration"/>
     <Param val="8080" valType="num" updates="None" name="plCompanionPort"/>
     <Param val="True" valType="bool" updates="None" name="plCompanionRecordingEnabled"/>
     <Param val="0.6" valType="num" updates="None" name="plConfidenceThreshold"/>
@@ -71,7 +70,7 @@
     <Param val="1000" valType="num" updates="None" name="plPupilRemoteTimeoutMs"/>
     <Param val="False" valType="bool" updates="None" name="plPupillometryOnly"/>
     <Param val="psychopy_iohub_surface" valType="str" updates="None" name="plSurfaceName"/>
-    <Param val="0" valType="code" updates="None" name="runMode"/>
+    <Param val="1" valType="code" updates="None" name="runMode"/>
     <Param val="False" valType="bool" updates="None" name="rush"/>
     <Param val="time" valType="str" updates="None" name="sortColumns"/>
     <Param val="" valType="str" updates="None" name="tbLicenseFile"/>
@@ -155,7 +154,7 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_localizer" plugin="None">
-        <Param val="'y', 'g', 'b', 'r'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -163,7 +162,7 @@
         <Param val="1.5" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp_localizer" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -603,8 +602,8 @@
       <CodeComponent name="settings" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="t_img_sequence = 0.1&amp;#10;t_img_localizer = 0.5&amp;#10;t_isi_localizer = 2.5&amp;#10;t_buffer = 10&amp;#10;image_size = 0.33&amp;#10;&amp;#10;fmri=False&amp;#10;&amp;#10;letter_height=0.06&amp;#10;&amp;#10; # show break after these blocks&amp;#10;breaks_after_block = [1, 3, 5]&amp;#10;&amp;#10;n_localizer_trials = 5&amp;#10;n_sequence_trials = 3&amp;#10;&amp;#10;dot_color = (-0.5, -0.5, -0.5)&amp;#10;&amp;#10;trigger_img = {}&amp;#10;trigger_img['Gesicht'] = 1&amp;#10;trigger_img['Haus']   = 2&amp;#10;trigger_img['Katze']   = 3&amp;#10;trigger_img['Schuh']   = 4&amp;#10;trigger_img['Stuhl']   = 5&amp;#10;&amp;#10;trigger_break_start = 91&amp;#10;trigger_break_stop = 92&amp;#10;trigger_buf_start = 61&amp;#10;trigger_buf_stop = 62&amp;#10;trigger_sequence_sound0 = 70&amp;#10;trigger_sequence_sound1 = 71&amp;#10;trigger_localizer_sound0 = 30&amp;#10;trigger_localizer_sound1 = 31&amp;#10;trigger_fixation_pre1 = 81&amp;#10;trigger_fixation_pre2 = 82&amp;#10;&amp;#10;# these get added depending on the trial&amp;#10;# ie. Gesicht in localizer = 1, as cue = 11, as sequence=21&amp;#10;trigger_base_val_localizer = 0&amp;#10;trigger_base_val_localizer_distractor = 100&amp;#10;trigger_base_val_cue = 10&amp;#10;trigger_base_val_sequence = 20&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="t_img_sequence = 0.1;&amp;#10;t_img_localizer = 0.5;&amp;#10;t_isi_localizer = 2.5;&amp;#10;t_buffer = 10;&amp;#10;image_size = 0.33;&amp;#10;fmri = false;&amp;#10;letter_height = 0.06;&amp;#10;breaks_after_block = [1, 3, 5];&amp;#10;n_localizer_trials = 5;&amp;#10;n_sequence_trials = 3;&amp;#10;dot_color = [(- 0.5), (- 0.5), (- 0.5)];&amp;#10;trigger_img = {};&amp;#10;trigger_img[&quot;Gesicht&quot;] = 1;&amp;#10;trigger_img[&quot;Haus&quot;] = 2;&amp;#10;trigger_img[&quot;Katze&quot;] = 3;&amp;#10;trigger_img[&quot;Schuh&quot;] = 4;&amp;#10;trigger_img[&quot;Stuhl&quot;] = 5;&amp;#10;trigger_break_start = 91;&amp;#10;trigger_break_stop = 92;&amp;#10;trigger_buf_start = 61;&amp;#10;trigger_buf_stop = 62;&amp;#10;trigger_sequence_sound0 = 70;&amp;#10;trigger_sequence_sound1 = 71;&amp;#10;trigger_localizer_sound0 = 30;&amp;#10;trigger_localizer_sound1 = 31;&amp;#10;trigger_fixation_pre1 = 81;&amp;#10;trigger_fixation_pre2 = 82;&amp;#10;trigger_base_val_localizer = 0;&amp;#10;trigger_base_val_localizer_distractor = 100;&amp;#10;trigger_base_val_cue = 10;&amp;#10;trigger_base_val_sequence = 20;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="t_img_sequence = 0.1&amp;#10;t_img_localizer = 0.5&amp;#10;t_isi_localizer = 2.5&amp;#10;t_buffer = 10&amp;#10;image_size = 0.33&amp;#10;&amp;#10;key_left = 'g'&amp;#10;key_right = 'b'&amp;#10;response_keys = [key_left, key_right]&amp;#10;&amp;#10;letter_height=0.07&amp;#10;&amp;#10; # show break after these blocks&amp;#10;breaks_after_block = [1, 3, 5]&amp;#10;&amp;#10;n_localizer_trials = 5&amp;#10;n_sequence_trials = 3&amp;#10;&amp;#10;dot_color = (-0.5, -0.5, -0.5)&amp;#10;&amp;#10;trigger_img = {}&amp;#10;trigger_img['Gesicht'] = 1&amp;#10;trigger_img['Haus']   = 2&amp;#10;trigger_img['Katze']   = 3&amp;#10;trigger_img['Schuh']   = 4&amp;#10;trigger_img['Stuhl']   = 5&amp;#10;&amp;#10;trigger_break_start = 91&amp;#10;trigger_break_stop = 92&amp;#10;trigger_buf_start = 61&amp;#10;trigger_buf_stop = 62&amp;#10;trigger_sequence_sound0 = 70&amp;#10;trigger_sequence_sound1 = 71&amp;#10;trigger_localizer_sound0 = 30&amp;#10;trigger_localizer_sound1 = 31&amp;#10;trigger_fixation_pre1 = 81&amp;#10;trigger_fixation_pre2 = 82&amp;#10;&amp;#10;# these get added depending on the trial&amp;#10;# ie. Gesicht in localizer = 1, as cue = 11, as sequence=21&amp;#10;trigger_base_val_localizer = 0&amp;#10;trigger_base_val_localizer_distractor = 100&amp;#10;trigger_base_val_cue = 10&amp;#10;trigger_base_val_sequence = 20&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="t_img_sequence = 0.1;&amp;#10;t_img_localizer = 0.5;&amp;#10;t_isi_localizer = 2.5;&amp;#10;t_buffer = 10;&amp;#10;image_size = 0.33;&amp;#10;key_left = &quot;g&quot;;&amp;#10;key_right = &quot;b&quot;;&amp;#10;response_keys = [key_left, key_right];&amp;#10;letter_height = 0.07;&amp;#10;breaks_after_block = [1, 3, 5];&amp;#10;n_localizer_trials = 5;&amp;#10;n_sequence_trials = 3;&amp;#10;dot_color = [(- 0.5), (- 0.5), (- 0.5)];&amp;#10;trigger_img = {};&amp;#10;trigger_img[&quot;Gesicht&quot;] = 1;&amp;#10;trigger_img[&quot;Haus&quot;] = 2;&amp;#10;trigger_img[&quot;Katze&quot;] = 3;&amp;#10;trigger_img[&quot;Schuh&quot;] = 4;&amp;#10;trigger_img[&quot;Stuhl&quot;] = 5;&amp;#10;trigger_break_start = 91;&amp;#10;trigger_break_stop = 92;&amp;#10;trigger_buf_start = 61;&amp;#10;trigger_buf_stop = 62;&amp;#10;trigger_sequence_sound0 = 70;&amp;#10;trigger_sequence_sound1 = 71;&amp;#10;trigger_localizer_sound0 = 30;&amp;#10;trigger_localizer_sound1 = 31;&amp;#10;trigger_fixation_pre1 = 81;&amp;#10;trigger_fixation_pre2 = 82;&amp;#10;trigger_base_val_localizer = 0;&amp;#10;trigger_base_val_localizer_distractor = 100;&amp;#10;trigger_base_val_cue = 10;&amp;#10;trigger_base_val_sequence = 20;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -770,7 +769,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <KeyboardComponent name="question_key_resp" plugin="None">
-        <Param val="'g', 'r', 'b'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -778,13 +777,13 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="question_key_resp" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="2.5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="1.5" valType="code" updates="constant" name="stopVal"/>
         <Param val="last key" valType="str" updates="constant" name="store"/>
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
@@ -809,7 +808,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="2.5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="1.5" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="Did X come before Y?" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
@@ -1719,7 +1718,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <KeyboardComponent name="key_resp_3" plugin="None">
-        <Param val="'y','b','r', 'g'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1727,7 +1726,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp_3" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -1821,7 +1820,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <KeyboardComponent name="key_resp_2" plugin="None">
-        <Param val="'y','b','r', 'g'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1829,7 +1828,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp_2" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -2032,7 +2031,7 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_7" plugin="None">
-        <Param val="'y', 'r', 'g', 'b'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -2040,7 +2039,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp_7" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -2126,7 +2125,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="3.85" valType="code" updates="constant" name="stopVal"/>
+        <Param val="3" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="langsame Bildfolge kommt" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
@@ -2164,8 +2163,8 @@
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="condition" valType="str" updates="None" name="stopType"/>
-        <Param val="$text_6.status==FINISHED" valType="code" updates="constant" name="stopVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="3.85" valType="code" updates="constant" name="stopVal"/>
         <Param val="all keys" valType="str" updates="constant" name="store"/>
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
@@ -2208,7 +2207,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="3.85" valType="code" updates="constant" name="stopVal"/>
+        <Param val="3" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="schnelle Bildfolge kommt" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
@@ -2247,7 +2246,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="condition" valType="str" updates="None" name="stopType"/>
-        <Param val="$text_9.status==FINISHED" valType="code" updates="constant" name="stopVal"/>
+        <Param val="3.85" valType="code" updates="constant" name="stopVal"/>
         <Param val="all keys" valType="str" updates="constant" name="store"/>
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
@@ -2459,7 +2458,7 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="choice_key" plugin="None">
-        <Param val="'g','b', 'r'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="response_keys" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -2467,7 +2466,7 @@
         <Param val="60.0" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="choice_key" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="release" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -2490,8 +2489,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;if ((choice_key.keys === &quot;g&quot;)) {&amp;#10;    german_polygon.borderColor = [1, 0.2941, (- 1)];&amp;#10;    language = &quot;german&quot;;&amp;#10;} else {&amp;#10;    if (_pj.in_es6(choice_key.keys, &quot;br&quot;)) {&amp;#10;        english_polygon.borderColor = [1, 0.2941, (- 1)];&amp;#10;        language = &quot;english&quot;;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="&amp;#10;if choice_key.keys == &quot;g&quot;:&amp;#10;    german_polygon.borderColor = [1, 0.2941, -1]&amp;#10;    language = &quot;german&quot;&amp;#10;elif choice_key.keys in &quot;br&quot;:&amp;#10;    english_polygon.borderColor = [1, 0.2941, -1]&amp;#10;    language = &quot;english&quot;&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;if (_pj.in_es6(choice_key.keys, key_left)) {&amp;#10;    german_polygon.borderColor = [1, 0.2941, (- 1)];&amp;#10;    language = &quot;german&quot;;&amp;#10;} else {&amp;#10;    if (_pj.in_es6(choice_key.keys, key_right)) {&amp;#10;        english_polygon.borderColor = [1, 0.2941, (- 1)];&amp;#10;        language = &quot;english&quot;;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="&amp;#10;if choice_key.keys in key_left:&amp;#10;    german_polygon.borderColor = [1, 0.2941, -1]&amp;#10;    language = &quot;german&quot;&amp;#10;elif choice_key.keys in key_right:&amp;#10;    english_polygon.borderColor = [1, 0.2941, -1]&amp;#10;    language = &quot;english&quot;&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="choice_code" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -2514,7 +2513,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <KeyboardComponent name="scanner_1" plugin="None">
-        <Param val="'t'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'t', &quot;g&quot;" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -2543,7 +2542,7 @@
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Open Sans" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="0.03" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text_10" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
@@ -2555,7 +2554,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="waiting for first scan..." valType="str" updates="constant" name="text"/>
+        <Param val="Experiment ready.&amp;#10;Please wait for first scan..." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
