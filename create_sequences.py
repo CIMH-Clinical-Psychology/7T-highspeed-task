@@ -183,7 +183,7 @@ def choose_cue(sequence):
 #%%
 np.random.seed(0)
 random.seed(0)
-n_blocks = 16
+n_blocks = 12
 seq_per_subj = 8
 n_subj = 40
 speeds = [32, 64, 128, 512]

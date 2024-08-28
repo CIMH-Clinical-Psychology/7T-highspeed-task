@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2024.2.0">
+<PsychoPy2experiment encoding="utf-8" version="2024.2.1">
   <Settings>
     <Param val="0" valType="str" updates="None" name="Audio latency priority"/>
-    <Param val="ptb" valType="str" updates="None" name="Audio lib"/>
+    <Param val="sounddevice" valType="str" updates="None" name="Audio lib"/>
     <Param val="" valType="str" updates="None" name="Completed URL"/>
     <Param val="comma" valType="str" updates="None" name="Data file delimiter"/>
     <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
@@ -54,7 +54,7 @@
     <Param val="127.0.0.1" valType="str" updates="None" name="gpAddress"/>
     <Param val="4242" valType="num" updates="None" name="gpPort"/>
     <Param val="ioHub" valType="str" updates="None" name="keyboardBackend"/>
-    <Param val="exp" valType="code" updates="None" name="logging level"/>
+    <Param val="info" valType="code" updates="None" name="logging level"/>
     <Param val="True" valType="bool" updates="None" name="measureFrameRate"/>
     <Param val="('MIDDLE_BUTTON',)" valType="list" updates="None" name="mgBlink"/>
     <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
@@ -331,26 +331,6 @@
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="choice_code" valType="code" updates="None" name="name"/>
       </CodeComponent>
-      <KeyboardComponent name="scanner" plugin="None">
-        <Param val="'t'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="" valType="str" updates="None" name="deviceLabel"/>
-        <Param val="True" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="scanner" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="all keys" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
     </Routine>
     <Routine name="instructions">
       <RoutineSettingsComponent name="instructions" plugin="None">
@@ -392,7 +372,7 @@
       <TextComponent name="text_instr" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="1.5" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="False" valType="code" updates="constant" name="draggable"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
@@ -414,7 +394,7 @@
         <Param val="error" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+        <Param val="1.5" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <CodeComponent name="code" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
@@ -433,26 +413,6 @@
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="code" valType="code" updates="None" name="name"/>
       </CodeComponent>
-      <KeyboardComponent name="scanner_2" plugin="None">
-        <Param val="'t'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="" valType="str" updates="None" name="deviceLabel"/>
-        <Param val="True" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="scanner_2" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="all keys" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
     </Routine>
     <Routine name="RS">
       <RoutineSettingsComponent name="RS" plugin="None">
@@ -506,8 +466,8 @@
         <Param val="start_time = time.time();&amp;#10;last_print = time.time();&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="start_time = time.time()&amp;#10;last_print = time.time()&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="if (time.time()-last_print)&gt;5:&amp;#10;    last_print = time.time()&amp;#10;    print(f'{int(last_print-start_time)}/{rs_length} seconds elapsed')&amp;#10;    " valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="if (((time.time() - last_print) &gt; 5)) {&amp;#10;    last_print = time.time();&amp;#10;    console.log(`${Number.parseInt((last_print - start_time))}/${rs_length} seconds elapsed`);&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="if (time.time()-last_print)&gt;5:&amp;#10;    last_print = time.time()&amp;#10;    msg = f'{int(last_print-start_time)}/{rs_length} seconds elapsed'&amp;#10;    print(msg, flush=True)&amp;#10;    logging.log(level=logging.EXP, msg=msg)&amp;#10;    logging.flush()    # write messages out to all targets&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if (((time.time() - last_print) &gt; 5)) {&amp;#10;    last_print = time.time();&amp;#10;    msg = `${Number.parseInt((last_print - start_time))}/${rs_length} seconds elapsed`;&amp;#10;    console.log(msg);&amp;#10;    logging.log({&quot;level&quot;: logging.EXP, &quot;msg&quot;: msg});&amp;#10;    logging.flush();&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
@@ -553,24 +513,6 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
-      <SoundComponent name="sound_1" plugin="None">
-        <Param val="" valType="str" updates="None" name="deviceLabel"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="True" valType="bool" updates="constant" name="hamming"/>
-        <Param val="sound_1" valType="code" updates="None" name="name"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="./sounds/soundCoin.wav" valType="str" updates="constant" name="sound"/>
-        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="1.0" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-        <Param val="1" valType="num" updates="constant" name="volume"/>
-      </SoundComponent>
       <TextComponent name="text_final" plugin="None">
         <Param val="black" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -674,7 +616,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <CodeComponent name="startup" plugin="None">
-        <Param val="import time&amp;#10;from psychopy import visual, event, core, gui&amp;#10;&amp;#10;trigger_rs_start = 1&amp;#10;trigger_rs_end = 2&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="import time&amp;#10;from psychopy import visual, event, core, gui, logging&amp;#10;&amp;#10;trigger_rs_start = 1&amp;#10;trigger_rs_end = 2&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="/* Syntax Error: Fix Python code */" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="session = expInfo['session']&amp;#10;participant_id = expInfo['participant']&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="session = expInfo[&quot;session&quot;];&amp;#10;participant_id = expInfo[&quot;participant&quot;];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
@@ -706,23 +648,6 @@
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="parameters" valType="code" updates="None" name="name"/>
-      </CodeComponent>
-      <CodeComponent name="setup_fmri" plugin="None">
-        <Param val="from psychopy_mri_emulator import launchScan&amp;#10;raise Exception&amp;#10;MR_settings = {&amp;#10;    'TR': 1.25,     # duration (sec) per whole-brain volume&amp;#10;    'volumes': 10000,    # number of whole-brain 3D volumes per scanning run&amp;#10;    'sync': 't', # character to use as the sync timing event; assumed to come at start of a volume&amp;#10;    'skip': 0,       # number of volumes lacking a sync pulse at start of scan (for T1 stabilization)&amp;#10;    'sound': False    # in test mode: play a tone as a reminder of scanner noise&amp;#10;    }&amp;#10;infoDlg = gui.DlgFromDict(MR_settings, title='fMRI parameters', order=['TR', 'volumes'])&amp;#10;if not infoDlg.OK:&amp;#10;    core.quit()&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="import {launchScan} from 'psychopy_mri_emulator';&amp;#10;throw Exception;&amp;#10;MR_settings = {&quot;TR&quot;: 1.25, &quot;volumes&quot;: 10000, &quot;sync&quot;: &quot;t&quot;, &quot;skip&quot;: 0, &quot;sound&quot;: false};&amp;#10;infoDlg = new gui.DlgFromDict(MR_settings, {&quot;title&quot;: &quot;fMRI parameters&quot;, &quot;order&quot;: [&quot;TR&quot;, &quot;volumes&quot;]});&amp;#10;if ((! infoDlg.OK)) {&amp;#10;    core.quit();&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="&amp;#10;&amp;#10;launchScan(win, settings=MR_settings, &amp;#10;          globalClock=globalClock, &amp;#10;          simResponses=None,&amp;#10;          mode='Test', esc_key='escape',&amp;#10;               instr='select Scan or Test, press enter',&amp;#10;               wait_msg=&quot;waiting for scanner...&quot;,&amp;#10;               wait_timeout=300, log=True)" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="launchScan(psychoJS.window, {&quot;settings&quot;: MR_settings, &quot;globalClock&quot;: globalClock, &quot;simResponses&quot;: null, &quot;mode&quot;: &quot;Test&quot;, &quot;esc_key&quot;: &quot;escape&quot;, &quot;instr&quot;: &quot;select Scan or Test, press enter&quot;, &quot;wait_msg&quot;: &quot;waiting for scanner...&quot;, &quot;wait_timeout&quot;: 300, &quot;log&quot;: true});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="True" valType="bool" updates="None" name="disabled"/>
-        <Param val="setup_fmri" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="wait_for_scanner">
@@ -772,7 +697,7 @@
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Open Sans" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.01" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="letter_height*1.2" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text_2" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
@@ -784,7 +709,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Experiment ready.&amp;#10;Please waiting for first scan..." valType="str" updates="constant" name="text"/>
+        <Param val="Das Experiment startet gleich..." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -835,7 +760,7 @@
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Arial" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="letter_height" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text_3" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
