@@ -210,6 +210,8 @@ for subj in range(n_subj):
     sequences_file = f'./sequences/sequences_{subj}.csv'
     df_localizer = pd.DataFrame()
     df_sequences = pd.DataFrame()
+    
+    t_blocks = []
 
     for block in range(n_blocks):
 
@@ -265,7 +267,13 @@ for subj in range(n_subj):
             
             df_sequences.loc[0, 'isi'] = 128
             df_sequences.loc[1, 'isi'] = 256
-            df_sequences.loc[2, 'isi'] = 64    
+            df_sequences.loc[2, 'isi'] = 64   
+            
+            
+        t_block = df_localizer_block.isi.sum() + (0.3+0.5)*len(df_localizer_block)  
+        t_block += 12*len(df_sequences_block) + (1+1.5+0.25+2.5)*len(df_sequences_block)
+
+        t_blocks += [t_block]
    
     # estimate experiment runtime
     # sum all ISI of the localizer plus fixation cross and image
